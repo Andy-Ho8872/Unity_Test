@@ -6,14 +6,19 @@ using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 using UnityEngine.Animations;
 
+
 public class Player : MonoBehaviour
 {
     // Get access to 
+    public Player player;
     public MovementController movementController;
     public AttackController attackController;
+    public GameObject Player_HP_Bar_Base;
+    public GameObject Player_HP_Bar;
     public Animator animator;
     // Variables for player
-    [SerializeField] private float HP = 10;
+    [SerializeField] private float max_HP = 10;
+    [SerializeField] private float current_HP = 10;
     [SerializeField] private bool isDead = false;
     private void OnCollisionEnter2D(Collision2D other)
     {
@@ -26,12 +31,18 @@ public class Player : MonoBehaviour
         // The player will get hit when colliding with monsters
         if (other.gameObject.CompareTag("Monster"))
         {
-            HP = HP - 1;
+            current_HP = current_HP - 1;
+            setPlayerStatus();
             detectIfPlayerIsDead();
         }
     }
+    private void Start()
+    {
+        player = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
+    }
     void Update()
     {
+        placePlayerHPBar();
         //todo If the player is dead just return
         if (isDead) return;
         // Prevent the player from moving, jumping, flipping while dashing
@@ -56,12 +67,25 @@ public class Player : MonoBehaviour
             StartCoroutine(movementController.dash());
         }
     }
+    private void placePlayerHPBar()
+    {
+        Vector3 playerPosition = player.transform.position;
+        float xOffset = 2f;
+        float yOffset = 4.5f;
+        Player_HP_Bar_Base.transform.position = new Vector3(playerPosition.x + xOffset, playerPosition.y + yOffset, playerPosition.z);
+    }
+    private void setPlayerStatus()
+    {
+        // When the player is getting hit, update the HP bar
+        Vector3 originalScale = Player_HP_Bar.transform.localScale;
+        Player_HP_Bar.transform.localScale = new Vector3(current_HP / max_HP, originalScale.y, originalScale.z);
+    }
     // When the player is dead
     private void detectIfPlayerIsDead()
     {
-        if (HP <= 0)
+        if (current_HP <= 0)
         {
-            HP = 0;
+            current_HP = 0;
             isDead = true;
             animator.SetTrigger("isDead");
         }
