@@ -7,7 +7,7 @@ public class Goblin : MonoBehaviour
     // Get access to
     public Animator animator;
     public GameObject MonsterPrefab;
-    public GameObject Player;
+    public Player Player;
     public SpriteRenderer monsterSprite;
     // local variables
     public enum Behavior { Idle, IsRunning, IsEscaping, IsDead };
@@ -24,6 +24,7 @@ public class Goblin : MonoBehaviour
 
     private void Start()
     {
+        Player = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
         // Set original status
         behavior = Behavior.Idle;
     }
