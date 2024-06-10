@@ -9,12 +9,14 @@ public class Goblin : MonoBehaviour
     public GameObject MonsterPrefab;
     public Player Player;
     public SpriteRenderer monsterSprite;
+    public GameObject HP_Bar;
     // local variables
     public enum Behavior { Idle, IsRunning, IsEscaping, IsDead };
     public enum FacingDirection { Left, Right };
     public Behavior behavior;
     public FacingDirection facingDirection;
-    public float HP = 5;
+    public float max_HP = 5;
+    public float current_HP = 5;
     public float lowHP = 2;
     public float moveSpeed = 2;
     private float playerPositionX;
@@ -38,12 +40,13 @@ public class Goblin : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Attack"))
         {
-            HP = HP - 1;
+            current_HP = current_HP - 1;
             animator.SetTrigger("isGettingHit");
             setMonsterStatus();
         }
     }
-    private void updateCurrentPosition() {
+    private void updateCurrentPosition()
+    {
         // local variables
         playerPositionX = Player.transform.position.x;
         monsterPositionX = MonsterPrefab.transform.position.x;
@@ -65,13 +68,16 @@ public class Goblin : MonoBehaviour
     // Control the status of monster
     public void setMonsterStatus()
     {
+        // When the monster is getting hit, update the HP bar
+        Vector3 originalScale = HP_Bar.transform.localScale;
+        HP_Bar.transform.localScale = new Vector3(current_HP / max_HP, originalScale.y, originalScale.z);
         // When the monster is in low HP
-        if (HP > 0 && HP <= lowHP)
+        if (current_HP > 0 && current_HP <= lowHP)
         {
             behavior = Behavior.IsEscaping;
         }
         // When the monster is dead
-        if (HP <= 0)
+        if (current_HP <= 0)
         {
             behavior = Behavior.IsDead;
         }
@@ -90,7 +96,8 @@ public class Goblin : MonoBehaviour
         }
     }
     // Controls the movement of monster
-    public void monsterMove(FacingDirection facingDirection) {
+    public void monsterMove(FacingDirection facingDirection)
+    {
         switch (facingDirection)
         {
             case FacingDirection.Left:
@@ -111,7 +118,7 @@ public class Goblin : MonoBehaviour
                 animator.SetBool("isRunning", false);
                 animator.SetBool("isEscaping", false);
                 // If the monster entered the escape zone with low HP
-                if (distanceBetweenPlayerAndMonster <= escapeZone && HP <= lowHP)
+                if (distanceBetweenPlayerAndMonster <= escapeZone && current_HP <= lowHP)
                 {
                     behavior = Behavior.IsEscaping;
                 }
