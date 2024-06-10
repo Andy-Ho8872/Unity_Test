@@ -106,8 +106,9 @@ public class Goblin : MonoBehaviour
         switch (behavior)
         {
             case Behavior.Idle:
-                // Cancel the running animation
+                // Cancel the animation
                 animator.SetBool("isRunning", false);
+                animator.SetBool("isEscaping", false);
                 // If the monster entered the escape zone with low HP
                 if (distanceBetweenPlayerAndMonster <= escapeZone && HP <= lowHP)
                 {
@@ -134,7 +135,7 @@ public class Goblin : MonoBehaviour
                 break;
             case Behavior.IsEscaping:
                 // Add animation
-                animator.SetBool("isRunning", true);
+                animator.SetBool("isEscaping", true);
                 // Make the monster escape to left side
                 if (distanceBetweenPlayerAndMonster <= escapeZone && playerPositionX > monsterPositionX)
                 {
@@ -154,8 +155,8 @@ public class Goblin : MonoBehaviour
                 }
                 break;
             case Behavior.IsDead:
-                // Cancel the running animation
-                animator.SetBool("isRunning", false);
+                // Cancel the animation
+                animator.SetBool("isEscaping", false);
                 // Add death animation
                 animator.SetTrigger("isDead");
                 // Delete the monster object
