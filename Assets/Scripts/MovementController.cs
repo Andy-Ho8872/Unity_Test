@@ -8,6 +8,7 @@ public class MovementController : MonoBehaviour
     public bool isGrounded = true;
     public float jumpHeight = 60f;
     // Variables for moving
+    public float defaultLinearDrag = 5;
     public float moveSpeed = 2.5f;
     public float moveSpeedLimit = 2.5f;
     // Variables for Dashing
@@ -70,12 +71,19 @@ public class MovementController : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.UpArrow) && isGrounded)
         {
+            // Sets the linear drag to 0
+            RB.drag = 0;
             // Use "UpArrow" to make the player jump (Vertical control)
             RB.AddForce(new Vector2(RB.velocity.x, jumpHeight), ForceMode2D.Impulse);
             // Add animation
             animator.SetBool("isJumping", true);
             // The Player is jumping
             isGrounded = false;
+        }
+        // reset the linear drag to default value
+        else if(isGrounded)
+        {
+            RB.drag = defaultLinearDrag;
         }
     }
     public void limitSpeed()
