@@ -9,6 +9,7 @@ public class MovementController : MonoBehaviour
     public float jumpHeight = 60f;
     // Variables for moving
     public float defaultLinearDrag = 5;
+    public bool shouldLimitSpeed = true;
     public float moveSpeed = 2.5f;
     public float moveSpeedLimit = 2.5f;
     // Variables for Dashing
@@ -81,13 +82,14 @@ public class MovementController : MonoBehaviour
             isGrounded = false;
         }
         // reset the linear drag to default value
-        else if(isGrounded)
+        else if (isGrounded)
         {
             RB.drag = defaultLinearDrag;
         }
     }
     public void limitSpeed()
     {
+        if (!shouldLimitSpeed) return;
         // limitations for moving left
         if (RB.velocity.x <= -moveSpeedLimit)
         {

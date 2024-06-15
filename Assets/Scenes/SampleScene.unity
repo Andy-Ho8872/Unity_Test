@@ -277,7 +277,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 9.116155
+  orthographic size: 23.340364
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -330,6 +330,18 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 3203468664017200104, guid: ebea5f8b8163f9a4ab9d9a1b45444e28, type: 3}
+      propertyPath: jumpHeight
+      value: 60
+      objectReference: {fileID: 0}
+    - target: {fileID: 3203468664017200104, guid: ebea5f8b8163f9a4ab9d9a1b45444e28, type: 3}
+      propertyPath: moveSpeedLimit
+      value: 2.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3609044973166007511, guid: ebea5f8b8163f9a4ab9d9a1b45444e28, type: 3}
+      propertyPath: m_LinearDrag
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 3609044973166007511, guid: ebea5f8b8163f9a4ab9d9a1b45444e28, type: 3}
       propertyPath: m_Constraints
       value: 4
@@ -378,6 +390,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8610899126840583081, guid: ebea5f8b8163f9a4ab9d9a1b45444e28, type: 3}
+      propertyPath: PlayerRB
+      value: 
+      objectReference: {fileID: 1805254103}
     - target: {fileID: 8610899126840583081, guid: ebea5f8b8163f9a4ab9d9a1b45444e28, type: 3}
       propertyPath: pushingPower
       value: 1500
@@ -607,6 +623,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 95f44e7d6bec55444916b13cc563aa43, type: 3}
+--- !u!50 &1805254103 stripped
+Rigidbody2D:
+  m_CorrespondingSourceObject: {fileID: 3609044973166007511, guid: ebea5f8b8163f9a4ab9d9a1b45444e28, type: 3}
+  m_PrefabInstance: {fileID: 618206573}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &2021913496
 GameObject:
   m_ObjectHideFlags: 0
@@ -632,7 +653,7 @@ Transform:
   m_GameObject: {fileID: 2021913496}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 3.56, y: 5.45, z: -10}
+  m_LocalPosition: {x: 0.2, y: 5.45, z: -10}
   m_LocalScale: {x: 0.93594795, y: 0.91223, z: 0.91223}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -649,11 +670,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 207283025364513494, guid: 6974d863d8b26594496243c6fc950722, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -7.5
+      value: -5.49
       objectReference: {fileID: 0}
     - target: {fileID: 207283025364513494, guid: 6974d863d8b26594496243c6fc950722, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.62
+      value: 0.64
       objectReference: {fileID: 0}
     - target: {fileID: 207283025364513494, guid: 6974d863d8b26594496243c6fc950722, type: 3}
       propertyPath: m_LocalPosition.z
