@@ -6,7 +6,7 @@ public class MovementController : MonoBehaviour
 {
     // Variables for jumping 
     public bool isGrounded = true;
-    public float jumpHeight = 20000f;
+    public float jumpHeight = 60f;
     // Variables for moving
     public float defaultLinearDrag = 5;
     public float moveSpeed = 2.5f;
@@ -26,8 +26,8 @@ public class MovementController : MonoBehaviour
     {
         float faceLeft = -1;
         float faceRight = 1;
-        float moveLeft = -100;
-        float moveRight = 100;
+        float moveLeft = -30000;
+        float moveRight = 30000;
         // Get the scale of the object
         Vector3 playerScale = Player.transform.localScale;
         // Speed limitation
@@ -60,7 +60,7 @@ public class MovementController : MonoBehaviour
         // Add animation
         animator.SetBool("isRunning", true);
         // Move the player based on velocity
-        RB.AddForce(new Vector2(velocity * moveSpeed, 0), ForceMode2D.Force);
+        RB.AddForce(new Vector2(velocity * moveSpeed * Time.deltaTime, 0), ForceMode2D.Force);
         // Disable running animation when jumping
         if (!isGrounded)
         {
@@ -74,7 +74,7 @@ public class MovementController : MonoBehaviour
             // Sets the linear drag to 0
             RB.drag = 0;
             // Use "UpArrow" to make the player jump (Vertical control)
-            RB.AddForce(new Vector2(RB.velocity.x, jumpHeight * Time.deltaTime), ForceMode2D.Impulse);
+            RB.AddForce(new Vector2(RB.velocity.x, jumpHeight), ForceMode2D.Impulse);
             // Add animation
             animator.SetBool("isJumping", true);
             // The Player is jumping
@@ -105,6 +105,7 @@ public class MovementController : MonoBehaviour
         // When the player is about to dash
         canDash = false;
         isDashing = true;
+        RB.drag = 0;
         // Get the original gravity of player, the default value is 1(1G)
         float originalGravity = RB.gravityScale;
         // Ensure that the player will not be affected by gravity while dashing
