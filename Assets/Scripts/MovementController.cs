@@ -6,7 +6,7 @@ public class MovementController : MonoBehaviour
 {
     // Variables for jumping 
     public bool isGrounded = true;
-    public float jumpHeight = 60f;
+    public float jumpHeight = 20000f;
     // Variables for moving
     public float defaultLinearDrag = 5;
     public float moveSpeed = 2.5f;
@@ -74,7 +74,7 @@ public class MovementController : MonoBehaviour
             // Sets the linear drag to 0
             RB.drag = 0;
             // Use "UpArrow" to make the player jump (Vertical control)
-            RB.AddForce(new Vector2(RB.velocity.x, jumpHeight), ForceMode2D.Impulse);
+            RB.AddForce(new Vector2(RB.velocity.x, jumpHeight * Time.deltaTime), ForceMode2D.Impulse);
             // Add animation
             animator.SetBool("isJumping", true);
             // The Player is jumping
