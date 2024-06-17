@@ -12,6 +12,8 @@ TagManager:
   - Attack
   - Player_HP_Bar_Base
   - Player_HP_Bar
+  - GroundTileMap
+  - DecorationsTileMap
   layers:
   - Default
   - TransparentFX
@@ -19,8 +21,8 @@ TagManager:
   - 
   - Water
   - UI
-  - 
-  - 
+  - Ground
+  - Decorations
   - 
   - 
   - 
