@@ -19,8 +19,8 @@ public class MovementController : MonoBehaviour
     private float dashingTime = 0.2f;
     private float dashingCoolDown = 2f;
     // Get access to 
-    [SerializeField] private Rigidbody2D RB;
-    public GameObject Player;
+    public Rigidbody2D PlayerRB;
+    public Player Player;
     public Animator animator;
     // This function controls the movement of the player with coordinates(x ,y) 
     public void run()
@@ -29,8 +29,11 @@ public class MovementController : MonoBehaviour
         float faceRight = 1;
         float moveLeft = -30000;
         float moveRight = 30000;
+        Vector2 playerVelocity = PlayerRB.velocity;
         // Get the scale of the object
         Vector3 playerScale = Player.transform.localScale;
+        // Reset the velocity to 0, which ensures the player will not be affected by friction = 0
+        playerVelocity.x = 0;
         // Speed limitation
         limitSpeed();
         // Use LeftArrow" and "RightArrow" to move the player (Horizontal control)
@@ -61,7 +64,7 @@ public class MovementController : MonoBehaviour
         // Add animation
         animator.SetBool("isRunning", true);
         // Move the player based on velocity
-        RB.AddForce(new Vector2(velocity * moveSpeed * Time.deltaTime, 0), ForceMode2D.Force);
+        PlayerRB.AddForce(new Vector2(velocity * moveSpeed * Time.deltaTime, 0), ForceMode2D.Force);
         // Disable running animation when jumping
         if (!isGrounded)
         {
@@ -70,12 +73,13 @@ public class MovementController : MonoBehaviour
     }
     public void jump()
     {
+        checkIsGrounded();
         if (Input.GetKeyDown(KeyCode.UpArrow) && isGrounded)
         {
             // Sets the linear drag to 0
-            RB.drag = 0;
+            PlayerRB.drag = 0;
             // Use "UpArrow" to make the player jump (Vertical control)
-            RB.AddForce(new Vector2(RB.velocity.x, jumpHeight), ForceMode2D.Impulse);
+            PlayerRB.AddForce(new Vector2(PlayerRB.velocity.x, jumpHeight), ForceMode2D.Impulse);
             // Add animation
             animator.SetBool("isJumping", true);
             // The Player is jumping
@@ -84,21 +88,37 @@ public class MovementController : MonoBehaviour
         // reset the linear drag to default value
         else if (isGrounded)
         {
-            RB.drag = defaultLinearDrag;
+            PlayerRB.drag = defaultLinearDrag;
+            animator.SetBool("isJumping", false);
+        }
+    }
+    private void checkIsGrounded()
+    {
+        RaycastHit2D[] hits = Physics2D.RaycastAll(Player.transform.position, Vector2.down, 1f);
+        // When the player is falling
+        if (PlayerRB.velocity.y <= 0)
+        {
+            foreach (var hit in hits)
+            {
+                if (hit.collider.gameObject.CompareTag("GroundTileMap"))
+                {
+                    isGrounded = true;
+                }
+            }
         }
     }
     public void limitSpeed()
     {
         if (!shouldLimitSpeed) return;
         // limitations for moving left
-        if (RB.velocity.x <= -moveSpeedLimit)
+        if (PlayerRB.velocity.x <= -moveSpeedLimit)
         {
-            RB.velocity = new Vector2(-moveSpeedLimit, RB.velocity.y);
+            PlayerRB.velocity = new Vector2(-moveSpeedLimit, PlayerRB.velocity.y);
         }
         // limitations for moving right
-        if (RB.velocity.x >= moveSpeedLimit)
+        if (PlayerRB.velocity.x >= moveSpeedLimit)
         {
-            RB.velocity = new Vector2(moveSpeedLimit, RB.velocity.y);
+            PlayerRB.velocity = new Vector2(moveSpeedLimit, PlayerRB.velocity.y);
         }
     }
     // The IEnumerator(Coroutine function) is kind of like async function in Javascript...? 
@@ -107,16 +127,16 @@ public class MovementController : MonoBehaviour
         // When the player is about to dash
         canDash = false;
         isDashing = true;
-        RB.drag = 0;
+        PlayerRB.drag = 0;
         // Get the original gravity of player, the default value is 1(1G)
-        float originalGravity = RB.gravityScale;
+        float originalGravity = PlayerRB.gravityScale;
         // Ensure that the player will not be affected by gravity while dashing
-        RB.gravityScale = 0f;
+        PlayerRB.gravityScale = 0f;
         // Give dashing power to the player and lock the vertical velocity
-        RB.velocity = new Vector2(Player.transform.localScale.x * dashingPower, 0f);
+        PlayerRB.velocity = new Vector2(Player.transform.localScale.x * dashingPower, 0f);
         // After casting the dash, reset to original value
         yield return new WaitForSeconds(dashingTime);
-        RB.gravityScale = originalGravity;
+        PlayerRB.gravityScale = originalGravity;
         isDashing = false;
         // When the CoolDown of dash is over
         yield return new WaitForSeconds(dashingCoolDown);
