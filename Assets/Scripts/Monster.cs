@@ -32,7 +32,7 @@ public class Goblin : MonoBehaviour
     }
     private void Update()
     {
-        updateCurrentPosition();
+        updateChasingArea();
         setMonsterSprite();
         setMonsterBehavior();
     }
@@ -45,7 +45,7 @@ public class Goblin : MonoBehaviour
             setMonsterStatus();
         }
     }
-    private void updateCurrentPosition()
+    private void updateChasingArea()
     {
         // local variables
         playerPositionX = Player.transform.position.x;

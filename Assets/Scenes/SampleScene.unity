@@ -4171,11 +4171,58 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 4315289897561641274, guid: 95f44e7d6bec55444916b13cc563aa43, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 3448646295182261071, guid: 95f44e7d6bec55444916b13cc563aa43, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1441033670}
   m_SourcePrefab: {fileID: 100100000, guid: 95f44e7d6bec55444916b13cc563aa43, type: 3}
+--- !u!1 &1441033666 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3448646295182261071, guid: 95f44e7d6bec55444916b13cc563aa43, type: 3}
+  m_PrefabInstance: {fileID: 1441033665}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1441033667 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2932444485375634204, guid: 95f44e7d6bec55444916b13cc563aa43, type: 3}
+  m_PrefabInstance: {fileID: 1441033665}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &1441033668 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 7372628613188729474, guid: 95f44e7d6bec55444916b13cc563aa43, type: 3}
+  m_PrefabInstance: {fileID: 1441033665}
+  m_PrefabAsset: {fileID: 0}
+--- !u!212 &1441033669 stripped
+SpriteRenderer:
+  m_CorrespondingSourceObject: {fileID: 6897475930746854699, guid: 95f44e7d6bec55444916b13cc563aa43, type: 3}
+  m_PrefabInstance: {fileID: 1441033665}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1441033670
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1441033666}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5044a4acc3d893c4b95b98001a46f914, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  animator: {fileID: 1441033668}
+  MonsterPrefab: {fileID: 1441033666}
+  Player: {fileID: 618206577}
+  monsterSprite: {fileID: 1441033669}
+  HP_Bar: {fileID: 1441033667}
+  behavior: 0
+  facingDirection: 0
+  max_HP: 5
+  current_HP: 5
+  lowHP: 2
+  moveSpeed: 2
 --- !u!1 &1844981028
 GameObject:
   m_ObjectHideFlags: 0
