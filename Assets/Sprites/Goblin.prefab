@@ -44,6 +44,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 12e24feed8656ec43af366f3890dc401, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  animator: {fileID: 7372628613188729474}
+  MonsterPrefab: {fileID: 3448646295182261071}
+  Player: {fileID: 0}
+  monsterSprite: {fileID: 6897475930746854699}
+  HP_Bar: {fileID: 2932444485375634204}
+  behavior: 0
+  facingDirection: 0
+  max_HP: 5
+  current_HP: 5
+  lowHP: 2
+  moveSpeed: 2
 --- !u!1 &2932444485375634204
 GameObject:
   m_ObjectHideFlags: 0
@@ -226,7 +237,7 @@ GameObject:
   - component: {fileID: 4977194802359362852}
   - component: {fileID: 8476653166206735614}
   - component: {fileID: 7372628613188729474}
-  - component: {fileID: 4315289897561641274}
+  - component: {fileID: 8381913317616270923}
   m_Layer: 0
   m_Name: Goblin
   m_TagString: Monster
@@ -396,7 +407,7 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!114 &4315289897561641274
+--- !u!114 &8381913317616270923
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -408,14 +419,3 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5044a4acc3d893c4b95b98001a46f914, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  animator: {fileID: 7372628613188729474}
-  MonsterPrefab: {fileID: 3448646295182261071}
-  Player: {fileID: 0}
-  monsterSprite: {fileID: 6897475930746854699}
-  HP_Bar: {fileID: 2932444485375634204}
-  behavior: 1
-  facingDirection: 0
-  max_HP: 5
-  current_HP: 5
-  lowHP: 2
-  moveSpeed: 2
