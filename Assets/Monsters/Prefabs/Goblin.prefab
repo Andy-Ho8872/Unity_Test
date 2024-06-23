@@ -46,6 +46,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   animator: {fileID: 7372628613188729474}
   MonsterPrefab: {fileID: 3448646295182261071}
+  MonsterAttackPrefab: {fileID: 0}
+  monsterAttackController: {fileID: 0}
   Player: {fileID: 0}
   monsterSprite: {fileID: 6897475930746854699}
   HP_Bar: {fileID: 2932444485375634204}
@@ -419,3 +421,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5044a4acc3d893c4b95b98001a46f914, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  monsterController: {fileID: 829776259785346433}

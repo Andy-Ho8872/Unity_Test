@@ -14,6 +14,8 @@ TagManager:
   - Player_HP_Bar
   - GroundTileMap
   - DecorationsTileMap
+  - MonsterAttackController
+  - MonsterAttackPrefab
   layers:
   - Default
   - TransparentFX

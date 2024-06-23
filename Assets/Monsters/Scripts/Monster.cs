@@ -9,17 +9,17 @@ public class Monster : MonoBehaviour
     
     private void Update()
     {
-        monsterController.updateChasingArea();
-        monsterController.setMonsterSprite();
+        // monsterController.setMonsterSprite();
         monsterController.setMonsterBehavior();
     }
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.gameObject.CompareTag("Attack"))
+        if (other.gameObject.CompareTag("Attack") && monsterController.current_HP >= 1)
         {
             monsterController.current_HP -= 1;
             monsterController.animator.SetTrigger("isGettingHit");
-            monsterController.setMonsterStatus();
+            monsterController.updateMonsterHP_Bar();
+            monsterController.setMonsterStatusOnCollision();
         }
     }
 }

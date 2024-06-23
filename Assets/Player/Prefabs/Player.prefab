@@ -76,7 +76,7 @@ Rigidbody2D:
   m_LinearDrag: 5
   m_AngularDrag: 0.05
   m_GravityScale: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: 379899f98a2fa7e4aa72b911352ad3b5, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -96,7 +96,7 @@ BoxCollider2D:
   m_GameObject: {fileID: 4105362945620786469}
   m_Enabled: 1
   m_Density: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: 379899f98a2fa7e4aa72b911352ad3b5, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -222,8 +222,8 @@ MonoBehaviour:
   moveSpeedLimit: 2.5
   isDashing: 0
   canDash: 1
-  RB: {fileID: 3609044973166007511}
-  Player: {fileID: 4105362945620786469}
+  PlayerRB: {fileID: 3609044973166007511}
+  Player: {fileID: 8610899126840583081}
   animator: {fileID: 4105362945620786468}
 --- !u!1 &8578083131211798316
 GameObject:
