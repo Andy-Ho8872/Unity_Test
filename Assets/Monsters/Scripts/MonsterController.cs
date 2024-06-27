@@ -10,7 +10,6 @@ public class MonsterController : MonoBehaviour
     // Get access to
     public Animator animator;
     public GameObject MonsterPrefab;
-    public GameObject MonsterAttackPrefab;
     public MonsterAttackController monsterAttackController;
     public Player Player;
     public SpriteRenderer monsterSprite;
@@ -35,6 +34,7 @@ public class MonsterController : MonoBehaviour
     void Start()
     {
         Player = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
+        monsterAttackController = GameObject.FindGameObjectWithTag("MonsterAttackController").GetComponent<MonsterAttackController>();
         // Set original status
         behavior = Behavior.Idle;
     }
@@ -205,7 +205,7 @@ public class MonsterController : MonoBehaviour
                 animator.SetBool("isRunning", false);
                 animator.SetBool("isInDetectionArea", true);
                 // todo wrap the code as function
-                // StartCoroutine(monsterAttackController.monsterAttack());
+                monsterAttackController.monsterAttack();
                 break;
             case Behavior.IsDead:
                 // Cancel the animation
