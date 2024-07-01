@@ -5,34 +5,44 @@ using UnityEngine;
 public class MonsterAttackController : MonoBehaviour
 {
     public GameObject MonsterPrefab;
-    public Vector3 monsterPosition;
+    public Vector3 MonsterPosition;
+    public SpriteRenderer MonsterSprite;
     public GameObject MonsterAttackPrefab;
+    public bool isShootingRight;
     public float shootRange = 0.5f;
     public float offsetX = 1f;
     public float offsetY = 1.25f;
     public float attackCoolDown = 0.75f;
-    private void Start() 
+    private void Start()
     {
-        MonsterPrefab = GameObject.Find("Goblin"); 
-        //todo test 
-        Debug.Log(MonsterPrefab);
-        if(MonsterPrefab != null) Debug.Log($"Monster position is {monsterPosition.x}");
-        else Debug.Log("Monster not found");    
+        MonsterPrefab = GameObject.Find("Goblin"); // Monster game object
+        MonsterSprite = MonsterPrefab.GetComponent<SpriteRenderer>();
+        setShootingStatus();
     }
     void Update()
     {
-        setMonsterPosition();  
-        // Fire
-        MonsterAttackPrefab.transform.position -= new Vector3(shootRange * Time.deltaTime * 40, 0, 0); 
+        setMonsterPosition();
+        shoot();
+    }
+    public void setShootingStatus()
+    {
+        // If monster is facing left
+        if (MonsterSprite.flipX) isShootingRight = false;
+        else isShootingRight = true;
+    }
+    public void shoot()
+    {
+        if (isShootingRight) MonsterAttackPrefab.transform.position += new Vector3(shootRange * Time.deltaTime * 40, 0, 0);
+        else MonsterAttackPrefab.transform.position -= new Vector3(shootRange * Time.deltaTime * 40, 0, 0);
     }
     public void setMonsterPosition()
     {
-        monsterPosition = MonsterPrefab.transform.position;
+        MonsterPosition = MonsterPrefab.transform.position;
     }
     public void monsterAttack()
     {
         attackCoolDown -= Time.deltaTime;
-        Vector3 newPosition = new Vector3(monsterPosition.x, monsterPosition.y - offsetY, monsterPosition.z);
+        Vector3 newPosition = new Vector3(MonsterPosition.x, MonsterPosition.y - offsetY, MonsterPosition.z);
         if (attackCoolDown <= 0)
         {
             GameObject bullet = Instantiate(MonsterAttackPrefab, newPosition, Quaternion.identity);
