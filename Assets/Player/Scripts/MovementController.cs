@@ -12,6 +12,10 @@ public class MovementController : MonoBehaviour
     public bool shouldLimitSpeed = true;
     public float moveSpeed = 2.5f;
     public float moveSpeedLimit = 2.5f;
+    private float faceLeft = -1;
+    private float faceRight = 1;
+    private float moveLeft = -30000;
+    private float moveRight = 30000;
     // Variables for Dashing
     public bool isDashing = false;
     public bool canDash = true;
@@ -25,10 +29,6 @@ public class MovementController : MonoBehaviour
     // This function controls the movement of the player with coordinates(x ,y) 
     public void run()
     {
-        float faceLeft = -1;
-        float faceRight = 1;
-        float moveLeft = -30000;
-        float moveRight = 30000;
         Vector2 playerVelocity = PlayerRB.velocity;
         // Get the scale of the object
         Vector3 playerScale = Player.transform.localScale;
