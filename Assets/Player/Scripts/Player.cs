@@ -50,6 +50,17 @@ public class Player : MonoBehaviour
             StartCoroutine(movementController.dash());
         }
     }
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.CompareTag("MonsterAttack"))
+        {
+            if (isDead) return;
+            detectIfPlayerIsDead();
+            takeDamage(1);
+            setPlayerStatus();
+            animator.SetTrigger("isGettingHit");
+        }
+    }
     private void OnCollisionEnter2D(Collision2D collision)
     {
         // Get the collision contact point
