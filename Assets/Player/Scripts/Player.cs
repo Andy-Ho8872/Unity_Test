@@ -104,7 +104,7 @@ public class Player : MonoBehaviour
     private void knockBack(ContactPoint2D contactPoint)
     {
         float pushingDirection = contactPoint.normal.x; // 1 or -1
-        float pushingPower = 1000f;
+        float pushingPower = 500f;
         PlayerRB.AddForce(new Vector2(pushingDirection * pushingPower, 0), ForceMode2D.Impulse);
     }
     // When the player is dead
