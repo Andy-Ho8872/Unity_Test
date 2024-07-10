@@ -82,6 +82,8 @@ public class MovementController : MonoBehaviour
             PlayerRB.AddForce(new Vector2(PlayerRB.velocity.x, jumpHeight), ForceMode2D.Impulse);
             // Add animation
             animator.SetBool("isJumping", true);
+            // Add sound clip
+            GameManager.Instance.audioManager.playAudioClip(1, "player_jump", false);
             // The Player is jumping
             isGrounded = false;
         }

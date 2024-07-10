@@ -39,13 +39,16 @@ public class MonsterAttackController : MonoBehaviour
     {
         MonsterPosition = MonsterPrefab.transform.position;
     }
-    public void monsterAttack()
+    // Create bullets
+    public void createBullet()
     {
         attackCoolDown -= Time.deltaTime;
         Vector3 newPosition = new Vector3(MonsterPosition.x, MonsterPosition.y - offsetY, MonsterPosition.z);
         if (attackCoolDown <= 0)
         {
             GameObject bullet = Instantiate(MonsterAttackPrefab, newPosition, Quaternion.identity);
+            // Add sound effect
+            GameManager.Instance.audioManager.playAudioClip(3, "monster_attack", false);
             // Reset timer
             attackCoolDown = 0.75f;
             // Delete bullet

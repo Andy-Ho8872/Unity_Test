@@ -9,7 +9,6 @@ public class Monster : MonoBehaviour
     
     private void Update()
     {
-        // monsterController.setMonsterSprite();
         monsterController.setMonsterBehavior();
     }
     private void OnTriggerEnter2D(Collider2D other)
@@ -18,6 +17,7 @@ public class Monster : MonoBehaviour
         {
             monsterController.current_HP -= 1;
             monsterController.animator.SetTrigger("isGettingHit");
+            GameManager.Instance.audioManager.playAudioClip(4, "monster_hurt", false);
             monsterController.updateMonsterHP_Bar();
             monsterController.setMonsterStatusOnCollision();
         }

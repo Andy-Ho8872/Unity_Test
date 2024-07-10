@@ -37,7 +37,6 @@ public class Player : MonoBehaviour
         movementController.jump();
         // Control the attack
         attackController.fireball();
-        detectIfPlayerIsDead();
     }
     private void FixedUpdate()
     {
@@ -58,7 +57,9 @@ public class Player : MonoBehaviour
             detectIfPlayerIsDead();
             takeDamage(1);
             setPlayerStatus();
+            // play animation and sound
             animator.SetTrigger("isGettingHit");
+            GameManager.Instance.audioManager.playAudioClip(2, "player_hurt", false);
         }
     }
     private void OnCollisionEnter2D(Collision2D collision)

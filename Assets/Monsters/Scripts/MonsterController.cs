@@ -67,6 +67,8 @@ public class MonsterController : MonoBehaviour
         if (current_HP <= 0)
         {
             isDead = true;
+            // Add sound effect
+            GameManager.Instance.audioManager.playAudioClip(5, "monster_dead", false);
         }
     }
     public void updateMonsterHP_Bar()
@@ -204,8 +206,7 @@ public class MonsterController : MonoBehaviour
                 animator.SetTrigger("isAttacking");
                 animator.SetBool("isRunning", false);
                 animator.SetBool("isInDetectionArea", true);
-                // todo wrap the code as function
-                monsterAttackController.monsterAttack();
+                monsterAttackController.createBullet();
                 break;
             case Behavior.IsDead:
                 // Cancel the animation

@@ -18,6 +18,7 @@ public class AttackController : MonoBehaviour
         {
             Instantiate(FireballPrefab, newPosition, Quaternion.identity);
             animator.SetTrigger("isAttacking");
+            GameManager.Instance.audioManager.playAudioClip(0, "player_attack", false);
         }
     }
 }
