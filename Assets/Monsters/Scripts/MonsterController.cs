@@ -8,33 +8,38 @@ public class MonsterController : MonoBehaviour
 
 {
     // Get access to
-    public Animator animator;
-    public GameObject MonsterPrefab;
-    public MonsterAttackController monsterAttackController;
-    public Player Player;
-    public SpriteRenderer monsterSprite;
     public GameObject HP_Bar;
-    // local variables
+    public Animator animator;
+    [Header("Scripts")]
+    public Monster MonsterPrefab;
+    public Player Player;
+    public MonsterAttackController monsterAttackController;
+    private SpriteRenderer monsterSprite;
     public enum Behavior { Idle, IsRunning, IsEscaping, IsAttacking, IsDead };
     public enum FacingDirection { Left, Right };
+    [Header("Enums")]
     public Behavior behavior;
     public FacingDirection facingDirection;
+    [Header("BodyAttribute")]
     public float max_HP = 5;
     public float current_HP = 5;
     public float lowHP = 2;
     public float moveSpeed = 2;
+    
+    [Header("Capability")]
+    [SerializeField] private bool canAttack = false;
+    [SerializeField] private bool isDead = false;
+    [Header("PositionDetection")]
     [SerializeField] private float playerPositionX;
     [SerializeField] private float monsterPositionX;
     [SerializeField] private float distanceBetweenPlayerAndMonster;
     [SerializeField] private float chaseDetectionArea = 12;
     [SerializeField] private float attackDetectionArea = 8;
-    [SerializeField] private bool canAttack = false;
-    [SerializeField] private bool isDead = false;
     // Start is called before the first frame update
     void Start()
     {
         Player = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
-        monsterAttackController = GameObject.FindGameObjectWithTag("MonsterAttackController").GetComponent<MonsterAttackController>();
+        monsterSprite = MonsterPrefab.GetComponent<SpriteRenderer>();
         // Set original status
         behavior = Behavior.Idle;
     }
