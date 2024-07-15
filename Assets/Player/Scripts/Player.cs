@@ -28,7 +28,6 @@ public class Player : MonoBehaviour
     }
     void Update()
     {
-        placePlayerHPBar();
         if (isDead) return;
         // Prevent the player from moving, jumping, flipping while dashing
         if (movementController.isDashing) return;
@@ -83,13 +82,6 @@ public class Player : MonoBehaviour
         {
             movementController.shouldLimitSpeed = true;
         }
-    }
-    private void placePlayerHPBar()
-    {
-        Vector3 playerPosition = player.transform.position;
-        float xOffset = 2f;
-        float yOffset = 4.5f;
-        Player_HP_Bar_Base.transform.position = new Vector3(playerPosition.x + xOffset, playerPosition.y + yOffset, playerPosition.z);
     }
     // When the player is getting hit, update the HP bar
     private void setPlayerStatus()
