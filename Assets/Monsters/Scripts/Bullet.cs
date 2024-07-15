@@ -13,11 +13,17 @@ public class Bullet : MonoBehaviour
     {
         setShootingStatus();
     }
-
-    // Update is called once per frame
     void Update()
     {
         shoot();
+    }
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        // if the attack hits the player
+        if (collision.CompareTag("Player"))
+        {
+            Destroy(bulletPrefab);
+        }
     }
     public void setOwner(Monster monster)
     {
