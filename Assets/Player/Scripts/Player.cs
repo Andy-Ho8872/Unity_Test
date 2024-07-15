@@ -11,15 +11,14 @@ public class Player : MonoBehaviour
 {
     // Get access to 
     public Player player;
+    public UI UI;
     public MovementController movementController;
     public AttackController attackController;
-    public GameObject Player_HP_Bar_Base;
-    public GameObject Player_HP_Bar;
     public Animator animator;
+    public float max_HP = 10;
+    public float current_HP = 10;
     [SerializeField] private Rigidbody2D PlayerRB;
     // Variables for player
-    [SerializeField] private float max_HP = 10;
-    [SerializeField] private float current_HP = 10;
     [SerializeField] private bool isDead = false;
     private void Start()
     {
@@ -55,7 +54,7 @@ public class Player : MonoBehaviour
             if (isDead) return;
             detectIfPlayerIsDead();
             takeDamage(1);
-            setPlayerStatus();
+            UI.updatePlayerHP_Bar_UI();
             // play animation and sound
             animator.SetTrigger("isGettingHit");
             GameManager.Instance.audioManager.playAudioClip(2, "player_hurt", false);
@@ -71,7 +70,7 @@ public class Player : MonoBehaviour
             movementController.shouldLimitSpeed = false; // Disable the limitation for moving speed
             knockBack(contactPoint);
             takeDamage(1);
-            setPlayerStatus();
+            UI.updatePlayerHP_Bar_UI();
             detectIfPlayerIsDead();
         }
     }
@@ -83,16 +82,10 @@ public class Player : MonoBehaviour
             movementController.shouldLimitSpeed = true;
         }
     }
-    // When the player is getting hit, update the HP bar
-    private void setPlayerStatus()
-    {
-        Vector3 originalScale = Player_HP_Bar.transform.localScale;
-        Player_HP_Bar.transform.localScale = new Vector3(current_HP / max_HP, originalScale.y, originalScale.z);
-    }
     // When the player is taking damage
     private void takeDamage(float damage)
     {
-        current_HP = current_HP - damage;
+        if (current_HP >= 1) current_HP = current_HP - damage;
     }
     private void knockBack(ContactPoint2D contactPoint)
     {
