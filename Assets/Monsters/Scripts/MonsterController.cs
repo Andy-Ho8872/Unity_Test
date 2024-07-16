@@ -11,7 +11,7 @@ public class MonsterController : MonoBehaviour
     public GameObject HP_Bar;
     public Animator animator;
     [Header("Scripts")]
-    public Monster MonsterPrefab;
+    public GameObject MonsterPrefab;
     public Player Player;
     public MonsterAttackController monsterAttackController;
     private SpriteRenderer monsterSprite;
@@ -25,7 +25,6 @@ public class MonsterController : MonoBehaviour
     public float current_HP = 5;
     public float lowHP = 2;
     public float moveSpeed = 2;
-    
     [Header("Capability")]
     [SerializeField] private bool canAttack = false;
     [SerializeField] private bool isDead = false;
