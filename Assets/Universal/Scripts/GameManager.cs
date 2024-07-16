@@ -8,6 +8,7 @@ public class GameManager : MonoBehaviour
     public static GameManager Instance; 
     // Other references
     public AudioManager audioManager;
+    public UI UI;
     private void Awake() {
         if (Instance != null && Instance != this) Destroy(Instance);
         else Instance = this;
