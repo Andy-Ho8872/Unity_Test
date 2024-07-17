@@ -17,11 +17,15 @@ public class AttackController : MonoBehaviour
         // Create fire ball 
         if (Input.GetKeyDown(KeyCode.Z) && fireballController.skill_coolDown_left <= 0)
         {
-            Instantiate(FireballPrefab, newPosition, Quaternion.identity);
+            GameObject fireball = Instantiate(FireballPrefab, newPosition, Quaternion.identity);
+            // Animation
             animator.SetTrigger("isAttacking");
+            // Play sound effect
             GameManager.Instance.audioManager.playAudioClip(0, "player_attack", false);
-            // reset the coolDown timer
+            // Reset the coolDown timer
             fireballController.skill_coolDown_left = fireballController.skill_coolDown;
+            // Delete the fireball after 1.5 seconds
+            Destroy(fireball, 1.5f);
         }
     }
 }

@@ -27,7 +27,7 @@ public class FireballController : MonoBehaviour
     {
         setSkillCoolDownLeft();
         shoot();
-        deleteFireball();
+        // deleteFireball(); //todo: bug detected(not used)
     }
     private void OnTriggerEnter2D(Collider2D other)
     {
@@ -76,13 +76,13 @@ public class FireballController : MonoBehaviour
             FireballPrefab.transform.position -= new Vector3(shootRange * Time.deltaTime * 60, 0, 0);
         }
     }
-    // Delete the fireball after a couple of seconds 
-    void deleteFireball()
-    {
-        timer = timer - Time.deltaTime;
-        if (FireballPrefab && timer <= 0)
-        {
-            Destroy(FireballPrefab, timer);
-        }
-    }
+    //! not used: Delete the fireball after a couple of seconds 
+    // void deleteFireball()
+    // {
+    //     timer = timer - Time.deltaTime;
+    //     if (FireballPrefab && timer <= 0)
+    //     {
+    //         Destroy(FireballPrefab, timer);
+    //     }
+    // }
 }
