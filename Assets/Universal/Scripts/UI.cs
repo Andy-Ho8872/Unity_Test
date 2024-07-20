@@ -9,6 +9,8 @@ public class UI : MonoBehaviour
     public Player player;
     public GameObject player_HP_Bar;
     public TextMeshProUGUI player_HP_Text;
+    public TextMeshProUGUI skill_coolDown_timer;
+    [Header("Skill_Icons")]
     public Image fireball_icon_transition;
     void Start()
     {
@@ -22,6 +24,18 @@ public class UI : MonoBehaviour
     }
     public void skillIconTransition(Image icon, float skill_coolDown_left, float skill_coolDown)
     {
+        float roundedValue = Mathf.Round(skill_coolDown_left);
+        // skill background shader
         icon.fillAmount = skill_coolDown_left / skill_coolDown;
+        // show the coolDown left of the skill
+        if (icon.fillAmount != 0)
+        {
+            skill_coolDown_timer.text = $"{roundedValue}s";
+        }
+        // if the coolDown is over, clear the text
+        else
+        {
+            skill_coolDown_timer.text = "";
+        }
     }
 }
