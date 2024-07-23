@@ -16,11 +16,12 @@ TagManager:
   - DecorationsTileMap
   - MonsterAttackController
   - MonsterAttackPrefab
+  - MonsterAttack
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - TEST
   - Water
   - UI
   - Ground

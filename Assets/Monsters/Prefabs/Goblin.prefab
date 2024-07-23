@@ -44,25 +44,74 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 12e24feed8656ec43af366f3890dc401, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  HP_Bar: {fileID: 2932444485375634204}
   animator: {fileID: 7372628613188729474}
   MonsterPrefab: {fileID: 3448646295182261071}
-  monsterAttackController: {fileID: 3792091517706190151, guid: 858b27e2621a20442a076256d6ca4317, type: 3}
   Player: {fileID: 0}
-  monsterSprite: {fileID: 6897475930746854699}
-  HP_Bar: {fileID: 2932444485375634204}
+  monsterAttackController: {fileID: 3377661748895261720}
   behavior: 0
   facingDirection: 0
   max_HP: 5
   current_HP: 5
   lowHP: 2
   moveSpeed: 2
+  canAttack: 0
+  isDead: 0
   playerPositionX: 0
   monsterPositionX: 0
   distanceBetweenPlayerAndMonster: 0
   chaseDetectionArea: 12
   attackDetectionArea: 8
-  canAttack: 0
-  isDead: 0
+--- !u!1 &437614582225159408
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1009814477377339752}
+  - component: {fileID: 3377661748895261720}
+  m_Layer: 0
+  m_Name: MonsterAttackController
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1009814477377339752
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 437614582225159408}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -1.4999866, y: 0.50452715, z: 0.39532375}
+  m_LocalScale: {x: 0.1, y: 0.1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 5566533376896613917}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &3377661748895261720
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 437614582225159408}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2cbaeacedbae6a046abd335bc8602c0f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Player: {fileID: 0}
+  MonsterPrefab: {fileID: 8381913317616270923}
+  MonsterAttackPrefab: {fileID: 2622369291907480214, guid: a7cd04374727a9c489e203a1c4630bd7, type: 3}
+  MonsterPosition: {x: 0, y: 0, z: 0}
+  offsetY: 1.25
+  attackCoolDown: 0.75
 --- !u!1 &2932444485375634204
 GameObject:
   m_ObjectHideFlags: 0
@@ -136,7 +185,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 1
-  m_Sprite: {fileID: 21300000, guid: 6c8a9b485bd490c4d8f67a2b1c80629e, type: 3}
+  m_Sprite: {fileID: 7482667652216324306, guid: 839050bcd173d6b42b88a4e148b39047, type: 3}
   m_Color: {r: 0.8867924, g: 0.08533284, b: 0.10209959, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -173,7 +222,7 @@ Transform:
   m_GameObject: {fileID: 3159545917227293910}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.176, y: 0.11, z: 0}
+  m_LocalPosition: {x: -0.204, y: 0.133, z: 0}
   m_LocalScale: {x: 0.4, y: -0.03, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -221,7 +270,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 6c8a9b485bd490c4d8f67a2b1c80629e, type: 3}
+  m_Sprite: {fileID: 7482667652216324306, guid: 839050bcd173d6b42b88a4e148b39047, type: 3}
   m_Color: {r: 0.5018867, g: 0.22632252, b: 0.22632252, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -268,7 +317,7 @@ Transform:
   m_Children:
   - {fileID: 6712435915846178666}
   - {fileID: 8970318212240577257}
-  - {fileID: 5144347920736079615}
+  - {fileID: 1009814477377339752}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &6897475930746854699
@@ -429,101 +478,3 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   monsterController: {fileID: 829776259785346433}
---- !u!1001 &7051343851212100222
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 5566533376896613917}
-    m_Modifications:
-    - target: {fileID: 2791953532681428097, guid: 858b27e2621a20442a076256d6ca4317, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2791953532681428097, guid: 858b27e2621a20442a076256d6ca4317, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2791953532681428097, guid: 858b27e2621a20442a076256d6ca4317, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2791953532681428097, guid: 858b27e2621a20442a076256d6ca4317, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2791953532681428097, guid: 858b27e2621a20442a076256d6ca4317, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2791953532681428097, guid: 858b27e2621a20442a076256d6ca4317, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2791953532681428097, guid: 858b27e2621a20442a076256d6ca4317, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2791953532681428097, guid: 858b27e2621a20442a076256d6ca4317, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2791953532681428097, guid: 858b27e2621a20442a076256d6ca4317, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2791953532681428097, guid: 858b27e2621a20442a076256d6ca4317, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3792091517706190151, guid: 858b27e2621a20442a076256d6ca4317, type: 3}
-      propertyPath: offsetX
-      value: 1.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 3792091517706190151, guid: 858b27e2621a20442a076256d6ca4317, type: 3}
-      propertyPath: MonsterPrefab
-      value: 
-      objectReference: {fileID: 3448646295182261071}
-    - target: {fileID: 7550727105827195413, guid: 858b27e2621a20442a076256d6ca4317, type: 3}
-      propertyPath: m_Name
-      value: MonsterAttackController
-      objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 3792091517706190151, guid: 858b27e2621a20442a076256d6ca4317, type: 3}
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 7550727105827195413, guid: 858b27e2621a20442a076256d6ca4317, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1438775627749430784}
-  m_SourcePrefab: {fileID: 100100000, guid: 858b27e2621a20442a076256d6ca4317, type: 3}
---- !u!1 &653854910216902763 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 7550727105827195413, guid: 858b27e2621a20442a076256d6ca4317, type: 3}
-  m_PrefabInstance: {fileID: 7051343851212100222}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &1438775627749430784
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 653854910216902763}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2cbaeacedbae6a046abd335bc8602c0f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  MonsterPrefab: {fileID: 3448646295182261071}
-  monsterPosition: {x: 0, y: 0, z: 0}
-  MonsterAttackPrefab: {fileID: 2622369291907480214, guid: a7cd04374727a9c489e203a1c4630bd7, type: 3}
-  shootRange: 0.5
-  offsetX: 1
-  offsetY: 1.25
-  attackCoolDown: 2
---- !u!4 &5144347920736079615 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 2791953532681428097, guid: 858b27e2621a20442a076256d6ca4317, type: 3}
-  m_PrefabInstance: {fileID: 7051343851212100222}
-  m_PrefabAsset: {fileID: 0}

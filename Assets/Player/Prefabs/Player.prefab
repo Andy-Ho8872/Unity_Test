@@ -37,6 +37,7 @@ Transform:
   - {fileID: 7478621442821964538}
   - {fileID: 5519593048629173070}
   - {fileID: 4997031785798805199}
+  - {fileID: 2162624100943130123}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!95 &4105362945620786468
@@ -119,7 +120,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.14581585, y: 2.159505}
+  m_Offset: {x: 0.020705223, y: 2.2008903}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -130,7 +131,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 2.104868, y: 4.1905003}
+  m_Size: {x: 1.8546467, y: 4.1077294}
   m_EdgeRadius: 0
 --- !u!114 &8610899126840583081
 MonoBehaviour:
@@ -145,14 +146,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 8610899126840583081}
+  UI: {fileID: 0}
   movementController: {fileID: 3203468664017200104}
   attackController: {fileID: 2860169103511740488}
-  Player_HP_Bar_Base: {fileID: 0}
-  Player_HP_Bar: {fileID: 0}
   animator: {fileID: 4105362945620786468}
-  PlayerRB: {fileID: 3609044973166007511}
   max_HP: 10
   current_HP: 10
+  PlayerRB: {fileID: 3609044973166007511}
   isDead: 0
 --- !u!114 &5985797912184614343
 MonoBehaviour:
@@ -225,6 +225,58 @@ MonoBehaviour:
   PlayerRB: {fileID: 3609044973166007511}
   Player: {fileID: 8610899126840583081}
   animator: {fileID: 4105362945620786468}
+--- !u!1 &7958816058625944059
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2162624100943130123}
+  - component: {fileID: 1353213776721799760}
+  m_Layer: 0
+  m_Name: FireballController
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2162624100943130123
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7958816058625944059}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 4105362945620786471}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1353213776721799760
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7958816058625944059}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c6d248eb79207624fb903227f06a26cd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 8610899126840583081}
+  FireballPrefab: {fileID: 3618093970855054742, guid: 91a7eb4c8e75a324b870e55f9921cfca, type: 3}
+  fireballSprite: {fileID: 6615463321405787845, guid: 91a7eb4c8e75a324b870e55f9921cfca, type: 3}
+  shootRange: 0.5
+  isShootingRight: 1
+  timer: 1.5
+  skill_coolDown: 1
+  skill_coolDown_left: 0
 --- !u!1 &8578083131211798316
 GameObject:
   m_ObjectHideFlags: 0
@@ -269,9 +321,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5421019dd36112a4fbddb8ebef3f1500, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Player: {fileID: 4105362945620786469}
+  player: {fileID: 8610899126840583081}
   FireballPrefab: {fileID: 3618093970855054742, guid: 91a7eb4c8e75a324b870e55f9921cfca, type: 3}
   animator: {fileID: 4105362945620786468}
+  fireballController: {fileID: 1353213776721799760}
 --- !u!1001 &4105362946132217688
 PrefabInstance:
   m_ObjectHideFlags: 0
