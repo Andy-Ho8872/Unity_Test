@@ -41,7 +41,7 @@ public class UI : MonoBehaviour
     {
         GameObject hitNumber = Instantiate(hitNumberPrefab, spawnPosition, Quaternion.identity);
         hitNumber.GetComponent<TextMeshPro>().text = $"{number}";
-        // Delete the number
-        Destroy(hitNumber, 0.5f);
+        //* Delete the number(will be destroyed automatically at the end of the animation)
+        // Destroy(hitNumber, 0.5f); //! This line is not needed
     }
 }
