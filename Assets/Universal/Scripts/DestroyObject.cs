@@ -4,8 +4,9 @@ using UnityEngine;
 
 public class DestroyObject : MonoBehaviour
 {
-    public void DestroyInAnimation(GameObject obj) 
+    public void DestroyInAnimation(GameObject obj)
     {
-        Destroy(obj, 0.5f);
+        // Only delete the object(Clone) that exists in the scene
+        Destroy(GameObject.Find($"{obj.name}(Clone)"));
     }
 }
