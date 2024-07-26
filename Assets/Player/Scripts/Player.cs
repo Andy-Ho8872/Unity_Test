@@ -10,11 +10,12 @@ using UnityEngine.Animations;
 public class Player : MonoBehaviour
 {
     // Get access to 
-    public Player player;
+    public Animator animator;
+    [Header("Scripts")]
     public UI UI;
     public MovementController movementController;
     public AttackController attackController;
-    public Animator animator;
+    [Header("Attributes")]
     public float max_HP = 10;
     public float current_HP = 10;
     [SerializeField] private Rigidbody2D PlayerRB;
@@ -22,7 +23,6 @@ public class Player : MonoBehaviour
     [SerializeField] private bool isDead = false;
     private void Start()
     {
-        player = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
         PlayerRB = GetComponent<Rigidbody2D>();
     }
     void Update()
@@ -35,6 +35,7 @@ public class Player : MonoBehaviour
         movementController.jump();
         // Control the attack
         attackController.fireball();
+        attackController.icicle();
     }
     private void FixedUpdate()
     {

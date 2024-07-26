@@ -11,9 +11,9 @@ public class UI : MonoBehaviour
     public GameObject hitNumberPrefab;
     [Header("Only can be used in UI_canvas")]
     public TextMeshProUGUI player_HP_Text;
-    public TextMeshProUGUI skill_coolDown_timer;
-    [Header("Skill_Icons")]
-    public Image fireball_icon_transition;
+    [Header("Skill Data")]
+    public Image[] skill_icon_transitions;
+    public TextMeshProUGUI[] skill_coolDown_timers; 
     void Start()
     {
         updatePlayerHP_Bar_UI();
@@ -26,15 +26,16 @@ public class UI : MonoBehaviour
         player_HP_Text.text = $"{player.current_HP} / {player.max_HP}";
     }
     // The function will change the icon's appearance when it is on coolDown
-    public void skillIconTransition(Image icon, float skill_coolDown_left, float skill_coolDown)
+    public void skillIconTransition(int skill_index, float skill_coolDown_left, float skill_coolDown)
     {
+        Image current_skill = skill_icon_transitions[skill_index];
         float roundedValue = Mathf.Round(skill_coolDown_left);
         // skill background shader
-        icon.fillAmount = skill_coolDown_left / skill_coolDown;
+        current_skill.fillAmount = skill_coolDown_left / skill_coolDown;
         // show the coolDown left of the skill
-        if (icon.fillAmount != 0) skill_coolDown_timer.text = $"{roundedValue}s";
+        if (current_skill.fillAmount != 0) skill_coolDown_timers[skill_index].text = $"{roundedValue}s";
         // if the coolDown is over, clear the text
-        else skill_coolDown_timer.text = "";
+        else skill_coolDown_timers[skill_index].text = "";
     }
     // The function will generate the damage number and it will be shown above the position
     public void generateHitNumber(int number, Vector3 spawnPosition)
