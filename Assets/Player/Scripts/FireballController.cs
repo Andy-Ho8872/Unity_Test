@@ -12,7 +12,6 @@ public class FireballController : MonoBehaviour
     public SpriteRenderer fireballSprite;
     public float shootRange = 0.5f;
     public bool isShootingRight = true;
-    public float timer = 1.5f;
     public float skill_coolDown = 1f;
     public float skill_coolDown_left = 0f; // can be used in default
     // Start is called before the first frame update
@@ -27,7 +26,6 @@ public class FireballController : MonoBehaviour
     {
         setSkillCoolDownLeft();
         shoot();
-        // deleteFireball(); //todo: bug detected(not used)
     }
     private void OnTriggerEnter2D(Collider2D other)
     {
@@ -55,9 +53,8 @@ public class FireballController : MonoBehaviour
         // if it's in coolDown
         if (skill_coolDown_left > 0)
         {
-            Image skillIcon = GameManager.Instance.UI.fireball_icon_transition;
             skill_coolDown_left -= Time.deltaTime;
-            GameManager.Instance.UI.skillIconTransition(skillIcon, skill_coolDown_left, skill_coolDown);
+            GameManager.Instance.UI.skillIconTransition(0, skill_coolDown_left, skill_coolDown);
         }
         // if the coolDown is over
         else if (skill_coolDown_left < 0)
@@ -76,13 +73,4 @@ public class FireballController : MonoBehaviour
             FireballPrefab.transform.position -= new Vector3(shootRange * Time.deltaTime * 60, 0, 0);
         }
     }
-    //! not used: Delete the fireball after a couple of seconds 
-    // void deleteFireball()
-    // {
-    //     timer = timer - Time.deltaTime;
-    //     if (FireballPrefab && timer <= 0)
-    //     {
-    //         Destroy(FireballPrefab, timer);
-    //     }
-    // }
 }
