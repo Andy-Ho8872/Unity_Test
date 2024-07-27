@@ -1,20 +1,23 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Threading.Tasks;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class IcicleController : MonoBehaviour
 {
     public GameObject iciclePrefab;
+    public int skill_damage = 2;
     public float skill_coolDown = 2f;
     public float skill_coolDown_left = 0f; // can be used in default
 
-    private void OnTriggerEnter2D(Collider2D other)
+    
+    private void OnTriggerEnter2D(Collider2D collision)
     {
         // If the skill hits the monster, delete it
-        if (other.gameObject.CompareTag("Monster"))
+        if (collision.gameObject.CompareTag("Monster"))
         {
-            Destroy(iciclePrefab, 2f);
+            GameManager.Instance.attackController.applyDamageToMonster(collision, skill_damage, iciclePrefab, 2f);
         }
     }
     private void Update()

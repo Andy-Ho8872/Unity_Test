@@ -23,6 +23,18 @@ public class AttackController : MonoBehaviour
         if (monsters.Length > 0) return true;
         else return false;
     }
+    // This function manages the monster's damage-taking sequence
+    public void applyDamageToMonster(Collider2D collision, int skill_damage, GameObject prefabToDestroy, float destroyTimer = 0f)
+    {
+        // Get monster reference
+        Monster monster = collision.gameObject.GetComponent<Monster>();
+        // Damage the monster
+        monster.monsterController.takeDamage(skill_damage);
+        // Generate damage number above the monster...   the Vector3.up and Vector3.right is the offset value
+        GameManager.Instance.UI.generateHitNumber(skill_damage, monster.transform.position);
+        // Delete the skill prefab, default timer is 0
+        Destroy(prefabToDestroy, destroyTimer);
+    }
     public void fireball()
     {
         float OffsetY = 3f;

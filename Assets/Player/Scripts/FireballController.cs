@@ -12,6 +12,7 @@ public class FireballController : MonoBehaviour
     public SpriteRenderer fireballSprite;
     public float shootRange = 0.5f;
     public bool isShootingRight = true;
+    public int skill_damage = 1;
     public float skill_coolDown = 1f;
     public float skill_coolDown_left = 0f; // can be used in default
     // Start is called before the first frame update
@@ -27,12 +28,12 @@ public class FireballController : MonoBehaviour
         setSkillCoolDownLeft();
         shoot();
     }
-    private void OnTriggerEnter2D(Collider2D other)
+    private void OnTriggerEnter2D(Collider2D collision)
     {
         // If the fireball hits the monster, delete it
-        if (other.gameObject.CompareTag("Monster"))
+        if (collision.gameObject.CompareTag("Monster"))
         {
-            Destroy(FireballPrefab, 0.15f);
+            GameManager.Instance.attackController.applyDamageToMonster(collision, skill_damage, FireballPrefab, 0.15f);
         }
     }
     void setShootingStatus()
