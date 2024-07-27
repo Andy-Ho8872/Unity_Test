@@ -75,6 +75,11 @@ public class MonsterController : MonoBehaviour
             GameManager.Instance.audioManager.playAudioClip(5, "monster_dead", false);
         }
     }
+    // The function deals with the damage taken for monster, and it returns a int value
+    public void takeDamage(int damage)
+    {
+        current_HP -= damage;
+    }
     public void updateMonsterHP_Bar()
     {
         // When the monster is getting hit, update the HP bar
@@ -83,10 +88,7 @@ public class MonsterController : MonoBehaviour
     }
     public void setMonsterStatus()
     {
-        if (isDead)
-        {
-            behavior = Behavior.IsDead;
-        }
+        if (isDead || current_HP <= 0) behavior = Behavior.IsDead;
         // When the is near player and in low HP status
         else if (distanceBetweenPlayerAndMonster <= chaseDetectionArea && current_HP <= lowHP && !isDead)
         {
