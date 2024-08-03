@@ -1,0 +1,103 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1001 &3468708438341511014
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 829776259785346433, guid: 95f44e7d6bec55444916b13cc563aa43, type: 3}
+      propertyPath: isDead
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3448646295182261071, guid: 95f44e7d6bec55444916b13cc563aa43, type: 3}
+      propertyPath: m_Name
+      value: FlyingEye
+      objectReference: {fileID: 0}
+    - target: {fileID: 4977194802359362852, guid: 95f44e7d6bec55444916b13cc563aa43, type: 3}
+      propertyPath: m_Size.x
+      value: 0.42705333
+      objectReference: {fileID: 0}
+    - target: {fileID: 4977194802359362852, guid: 95f44e7d6bec55444916b13cc563aa43, type: 3}
+      propertyPath: m_Size.y
+      value: 0.35016322
+      objectReference: {fileID: 0}
+    - target: {fileID: 4977194802359362852, guid: 95f44e7d6bec55444916b13cc563aa43, type: 3}
+      propertyPath: m_Offset.x
+      value: -0.02657777
+      objectReference: {fileID: 0}
+    - target: {fileID: 4977194802359362852, guid: 95f44e7d6bec55444916b13cc563aa43, type: 3}
+      propertyPath: m_Offset.y
+      value: -0.025502741
+      objectReference: {fileID: 0}
+    - target: {fileID: 5566533376896613917, guid: 95f44e7d6bec55444916b13cc563aa43, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 5566533376896613917, guid: 95f44e7d6bec55444916b13cc563aa43, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 5566533376896613917, guid: 95f44e7d6bec55444916b13cc563aa43, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -22.03
+      objectReference: {fileID: 0}
+    - target: {fileID: 5566533376896613917, guid: 95f44e7d6bec55444916b13cc563aa43, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 1.78
+      objectReference: {fileID: 0}
+    - target: {fileID: 5566533376896613917, guid: 95f44e7d6bec55444916b13cc563aa43, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5566533376896613917, guid: 95f44e7d6bec55444916b13cc563aa43, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5566533376896613917, guid: 95f44e7d6bec55444916b13cc563aa43, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5566533376896613917, guid: 95f44e7d6bec55444916b13cc563aa43, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5566533376896613917, guid: 95f44e7d6bec55444916b13cc563aa43, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5566533376896613917, guid: 95f44e7d6bec55444916b13cc563aa43, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5566533376896613917, guid: 95f44e7d6bec55444916b13cc563aa43, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5566533376896613917, guid: 95f44e7d6bec55444916b13cc563aa43, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6897475930746854699, guid: 95f44e7d6bec55444916b13cc563aa43, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: -4795363162621231457, guid: 6d7cd4f7505dc674c891ca8946cfd98b, type: 3}
+    - target: {fileID: 7372628613188729474, guid: 95f44e7d6bec55444916b13cc563aa43, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: 413eca0d1a5f39547b8d568daf88adb8, type: 2}
+    - target: {fileID: 8970318212240577257, guid: 95f44e7d6bec55444916b13cc563aa43, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.238
+      objectReference: {fileID: 0}
+    - target: {fileID: 8970318212240577257, guid: 95f44e7d6bec55444916b13cc563aa43, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.174
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 95f44e7d6bec55444916b13cc563aa43, type: 3}
