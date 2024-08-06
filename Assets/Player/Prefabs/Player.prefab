@@ -250,7 +250,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7958816058625944059}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -322,9 +322,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 8610899126840583081}
+  monsters: []
   FireballPrefab: {fileID: 3618093970855054742, guid: 91a7eb4c8e75a324b870e55f9921cfca, type: 3}
+  IciclePrefab: {fileID: 0}
   animator: {fileID: 4105362945620786468}
   fireballController: {fileID: 1353213776721799760}
+  icicleController: {fileID: 0}
 --- !u!1001 &4105362946132217688
 PrefabInstance:
   m_ObjectHideFlags: 0
