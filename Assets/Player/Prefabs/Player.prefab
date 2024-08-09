@@ -38,6 +38,7 @@ Transform:
   - {fileID: 5519593048629173070}
   - {fileID: 4997031785798805199}
   - {fileID: 2162624100943130123}
+  - {fileID: 4749135663311080343}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!95 &4105362945620786468
@@ -145,11 +146,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 94e17c0d0aeed7545b430746bf92ff17, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 8610899126840583081}
+  animator: {fileID: 4105362945620786468}
   UI: {fileID: 0}
   movementController: {fileID: 3203468664017200104}
   attackController: {fileID: 2860169103511740488}
-  animator: {fileID: 4105362945620786468}
   max_HP: 10
   current_HP: 10
   PlayerRB: {fileID: 3609044973166007511}
@@ -170,6 +170,54 @@ MonoBehaviour:
   Player: {fileID: 4105362945620786469}
   PlayerEcho: {fileID: 8415574156269349519, guid: f747eed91d9bdc54e95d5c62f79ab046, type: 3}
   movementController: {fileID: 3203468664017200104}
+--- !u!1 &4609257340078276222
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4749135663311080343}
+  - component: {fileID: 5494562898960778720}
+  m_Layer: 0
+  m_Name: IcicleController
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4749135663311080343
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4609257340078276222}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 4105362945620786471}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &5494562898960778720
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4609257340078276222}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 135160334321c4744ae1583daefac950, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  iciclePrefab: {fileID: 7650345798225190378, guid: da95bc7fb65cf4841a15f6c39ebf4394, type: 3}
+  skill_damage: 2
+  skill_coolDown: 2
+  skill_coolDown_left: 0
 --- !u!1 &5515525798180597502
 GameObject:
   m_ObjectHideFlags: 0
@@ -274,7 +322,7 @@ MonoBehaviour:
   fireballSprite: {fileID: 6615463321405787845, guid: 91a7eb4c8e75a324b870e55f9921cfca, type: 3}
   shootRange: 0.5
   isShootingRight: 1
-  timer: 1.5
+  skill_damage: 1
   skill_coolDown: 1
   skill_coolDown_left: 0
 --- !u!1 &8578083131211798316
@@ -322,12 +370,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 8610899126840583081}
+  animator: {fileID: 4105362945620786468}
   monsters: []
   FireballPrefab: {fileID: 3618093970855054742, guid: 91a7eb4c8e75a324b870e55f9921cfca, type: 3}
-  IciclePrefab: {fileID: 0}
-  animator: {fileID: 4105362945620786468}
+  IciclePrefab: {fileID: 7650345798225190378, guid: da95bc7fb65cf4841a15f6c39ebf4394, type: 3}
   fireballController: {fileID: 1353213776721799760}
-  icicleController: {fileID: 0}
+  icicleController: {fileID: 5494562898960778720}
 --- !u!1001 &4105362946132217688
 PrefabInstance:
   m_ObjectHideFlags: 0
