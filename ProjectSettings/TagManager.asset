@@ -10,18 +10,14 @@ TagManager:
   - Monster
   - MonsterController
   - Attack
-  - Player_HP_Bar_Base
-  - Player_HP_Bar
   - GroundTileMap
   - DecorationsTileMap
-  - MonsterAttackController
-  - MonsterAttackPrefab
   - MonsterAttack
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - TEST
+  - IgnoreForDetector
   - Water
   - UI
   - Ground

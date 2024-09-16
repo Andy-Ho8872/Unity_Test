@@ -483,11 +483,12 @@ MonoBehaviour:
   player_HP_Bar: {fileID: 8079210614889039501}
   hitNumberPrefab: {fileID: 6644547095651925295, guid: cb54c50fd7aff4440aaf6a6526d5ebea, type: 3}
   player_HP_Text: {fileID: 1589053982728681756}
+  skill_icon_transitions:
+  - {fileID: 4676903420865204433}
+  - {fileID: 1596486685990317677}
   skill_coolDown_timers:
   - {fileID: 4618535306355256840}
   - {fileID: 2704260606023696025}
-  fireball_icon_transition: {fileID: 4676903420865204433}
-  icicle_icon_transition: {fileID: 1596486685990317677}
 --- !u!1 &5666580032033247202
 GameObject:
   m_ObjectHideFlags: 0

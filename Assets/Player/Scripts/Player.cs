@@ -36,6 +36,7 @@ public class Player : MonoBehaviour
         // Control the attack
         attackController.fireball();
         attackController.icicle();
+        attackController.lightningChain();
     }
     private void FixedUpdate()
     {

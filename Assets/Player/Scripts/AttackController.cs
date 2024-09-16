@@ -11,9 +11,11 @@ public class AttackController : MonoBehaviour
     [Header("Skill Prefabs")]
     public GameObject FireballPrefab;
     public GameObject IciclePrefab;
+    public GameObject LightningChainPrefab;
     [Header("Scripts")]
     public FireballController fireballController;
     public IcicleController icicleController;
+    public LightningChainController lightningChainController;
     private void Update()
     {
         monsters = GameObject.FindGameObjectsWithTag("Monster");
@@ -71,6 +73,13 @@ public class AttackController : MonoBehaviour
             GameManager.Instance.audioManager.playAudioClip(0, "player_attack", false);
             // Reset the coolDown timer
             icicleController.skill_coolDown_left = icicleController.skill_coolDown;
+        }
+    }
+    public void lightningChain()
+    {
+        if (Input.GetKeyDown(KeyCode.C))
+        {
+            lightningChainController.StartShooting();
         }
     }
 }

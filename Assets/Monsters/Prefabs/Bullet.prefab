@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 5701083217812819588}
   - component: {fileID: 1533344842003170344}
   - component: {fileID: -2392288977125449746}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Bullet
   m_TagString: MonsterAttack
   m_Icon: {fileID: 0}
